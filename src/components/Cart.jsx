@@ -10,6 +10,11 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cart);
   console.log(cartItems);
 
+  // acc = total items present in the cart
+  const totalQty = cartItems.reduce((totalItem, item) => totalItem + item.qty, 0)
+
+  const totalPrice = cartItems.reduce((total, item) => total + item.qty * item.price, 0)
+
   return (
     <>
       <div
@@ -30,8 +35,8 @@ const Cart = () => {
 
 
         <div className="absolute bottom-0 ">
-          <h3 className="font-semibold text-gray-800">Items : </h3>
-          <h3 className="font-semibold text-gray-800">Total Amount : </h3>
+          <h3 className="font-semibold text-gray-800">Items : {totalQty}</h3>
+          <h3 className="font-semibold text-gray-800">Total Amount : {totalPrice}</h3>
           <hr className="lg:w-[18vw] md:w-[37vw] sm:w-[95vw] w-[90vw] my-3" />
           <button className="lg:w-[18vw] md:w-[37vw] sm:w-[95vw] w-[90vw] mb-4 px-2 py-1 text-white bg-green-500 rounded hover:shadow-md hover:shadow-green-400">
             Checkout
@@ -39,7 +44,7 @@ const Cart = () => {
         </div>
 
       </div>
-      <FaShoppingCart onClick={() => setCart(!cart)} className="fixed p-3 text-5xl bg-white rounded-md shadow-md bottom-4 right-4 hover:cursor-pointer" />
+      <FaShoppingCart onClick={() => setCart(!cart)} className={`fixed p-3 text-5xl bg-white rounded-md shadow-md bottom-4 right-4 hover:cursor-pointer ${cartItems.length > 0 ? 'animate-bounce' : 'animate-none'}`} />
     </>
   );
 };
