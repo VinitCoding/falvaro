@@ -1,13 +1,18 @@
 import React from "react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { removeFromCart } from "../redux/slices/cartSlice";
 
-const ItemCart = ({id, name, img, price, qty}) => {
+const ItemCart = ({ id, name, img, price, qty }) => {
+  const dispatch = useDispatch()
+
   return (
     <div className="flex gap-2 p-2 mb-3 rounded shadow-md">
       <MdDelete
         className="absolute right-7 hover:cursor-pointer"
         title="Remove from the cart"
+        onClick={() => dispatch(removeFromCart({ id, name, img, price, qty }))}
       />
       <img
         src={img}

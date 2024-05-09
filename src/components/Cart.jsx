@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { FaShoppingCart } from "react-icons/fa";
 
 const Cart = () => {
-  const [cart, setCart] = useState(true);
+  const [cart, setCart] = useState(false);
 
   const cartItems = useSelector((state) => state.cart.cart);
   console.log(cartItems);
@@ -22,9 +22,10 @@ const Cart = () => {
         </div>
 
         {
+          cartItems.length > 0 ?
           cartItems.map((food) => (
             <ItemCart key={food.id} id={food.id} name={food.name} price={food.price} img={food.image} qty={food.qty}/>
-          ))
+          )) : (<h2 className="mt-10 text-2xl font-semibold text-center">Your Cart is Empty</h2>)
         }
 
 
