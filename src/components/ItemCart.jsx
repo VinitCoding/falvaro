@@ -15,7 +15,7 @@ const ItemCart = () => {
         className="w-[50px] h-[50px]"
       />
 
-      <div className="">
+      <div className="leading-5">
         <h2 className="font-bold text-gray-600">Onion Pizza</h2>
         <div className="flex items-center">
           <span className="text-green-500">₹ 120</span>
