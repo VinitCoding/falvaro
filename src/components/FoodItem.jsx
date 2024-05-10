@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 
 const FoodItem = () => {
   const category = useSelector((state) => state.category.category)
+  const search = useSelector((state) => state.search.search)
+  // console.log(search);
   const handleSuccessToast = (name) => toast.success(`Added ${name}`)
 
   return (
@@ -18,17 +20,14 @@ const FoodItem = () => {
         {
           FoodData.filter((food) => {
             if (category === 'All') {
-              return food
+              return food.name.toLowerCase().includes(search.toLowerCase())
             } else {
-              return category === food.category
+              return category === food.category && food.name.toLowerCase().includes(search.toLowerCase())
             }
           }).map((item) => (
             <FoodCard key={item.id} id={item.id} image={item.img} name={item.name} price={item.price} desc={item.desc} category={item.category} rating={item.rating} handleToast={handleSuccessToast} />
           ))
         }
-        {/* {
-          FoodData.map((item) => (<FoodCard key={item.id} id={item.id} image={item.img} name={item.name} price={item.price} desc={item.desc} category={item.category} rating={item.rating} handleToast={handleSuccessToast} />))
-        } */}
       </div>
     </>
   )
