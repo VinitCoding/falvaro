@@ -155,9 +155,9 @@ const FoodData = [
   {
     id: 18,
     img: "https://w7.pngwing.com/pngs/816/163/png-transparent-grilled-skewered-meat-bakery-paneer-tikka-indian-cuisine-vegetarian-cuisine-cake-food-baking-cake-decorating-thumbnail.png",
-    name: "Paneer Tikka Skewers",
+    name: "Panner Tikka Skewers",
     price: 130,
-    desc: "Enjoy succulent pieces of marinated paneer (Indian cottage cheese) skewered and grilled to perfection. Served with mint chutney, these paneer tikka skewers offer a flavorful and aromatic Indian snack experience.",
+    desc: "Enjoy succulent pieces of marinated panner (Indian cottage cheese) skewered and grilled to perfection. Served with mint chutney, these panner tikka skewers offer a flavorful and aromatic Indian snack experience.",
     category: "Snacks",
     rating: 4.9,
   },
